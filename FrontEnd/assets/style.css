@@ -137,6 +137,23 @@ li:hover {
 	width: 100%;
 
 }
+
+button{
+	display: flex;
+	flex-direction: row;
+}
+.btn-filtres{
+	margin: 15px 5px;
+	padding: 4px 19px;
+	border-radius: 25px;
+	border-color: #1D6154;
+	background-color: white;
+}
+
+.btn-filtres::selection{
+	background-color: #1D6154;
+}
+
 #contact {
 	width: 50%;
 margin: auto;
