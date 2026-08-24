@@ -50,14 +50,16 @@ table {
 body {
 	max-width: 1140px;
 	margin:auto;
-	font-family: 'Work Sans' ;
+	font-family: 'Work Sans';
 	font-size: 14px;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
@@ -65,7 +67,7 @@ section {
 h1{
 	display: flex;
 	flex-direction: column;
-	font-family: 'Syne';
+	font-family: 'Syne' !important;
 	font-size: 22px;
 	font-weight: 800;
 	color: #B1663C
@@ -79,7 +81,7 @@ h1 > span {
 }
 
 h2{
-	font-family: 'Syne';
+	font-family: 'Syne' !important;
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
@@ -138,20 +140,31 @@ li:hover {
 
 }
 
-button{
+.zone-filtres{
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	margin: 50px 0px;
+	gap: 10px;
 }
+
 .btn-filtres{
-	margin: 15px 5px;
-	padding: 4px 19px;
-	border-radius: 25px;
-	border-color: #1D6154;
+	border-radius: 50px;
+	border: 1px solid #1D6154;
+	color: #1D6154;
+	font-family: 'Syne' !important;
+	font-weight: 700;
+	padding: 10px 15px;
 	background-color: white;
 }
 
-.btn-filtres::selection{
+.btn-filtres:hover{
+	cursor: pointer;
+}
+
+.btn-filtres.active{
 	background-color: #1D6154;
+	color: white;
 }
 
 #contact {
@@ -187,7 +200,7 @@ margin: auto;
 }
 
 input[type="submit"]{
-	font-family: 'Syne';
+	font-family: 'Syne' !important;
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;

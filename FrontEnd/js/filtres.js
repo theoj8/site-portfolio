@@ -8,7 +8,7 @@ async function displayCategorie() {
     const categories = await getCategories();
     let filtres = document.querySelector(".zone-filtres");
     let newFiltresTous = document.createElement("button");
-    newFiltresTous.setAttribute("class", "btn-filtres");
+    newFiltresTous.setAttribute("class", "btn-filtres active");
     newFiltresTous.textContent = "Tous";
     filtres.appendChild(newFiltresTous);
         for (let i = 0; i < categories.length; i++){
@@ -19,8 +19,12 @@ async function displayCategorie() {
             newFiltres.textContent = category.name;
             filtres.appendChild(newFiltres);
             newFiltres.addEventListener("click", async function(event){
+                let allButton = document.querySelectorAll(".btn-filtres");
+                for (let i=0; i < allButton.length; i++){
+                    allButton[i].classList.remove("active");
+                }
+                event.target.classList.add("active");
                 let idCategory = event.target.getAttribute("data-category-id");
-                console.log(idCategory);
                 const works = await getWorks();
                 let worksFiltres = works.filter(function(work){
                     return work.categoryId == idCategory
@@ -41,8 +45,13 @@ async function displayCategorie() {
                 }
             })
         }
-    newFiltresTous.addEventListener("click", async function(){
+    newFiltresTous.addEventListener("click", async function(event){
             const works = await getWorks();
+            let allButton = document.querySelectorAll(".btn-filtres");
+            for (let i=0; i < allButton.length; i++){
+                allButton[i].classList.remove("active");
+            }
+            event.target.classList.add("active");
             document.querySelector(".gallery").innerHTML = "";
             let gallery = document.querySelector(".gallery");
             for (let i=0; i < works.length; i++){
