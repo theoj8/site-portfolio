@@ -232,6 +232,11 @@ a{
 	font-weight: bold;
 }
 
+.error-message{
+	margin-top: 15px;
+	color: red;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
