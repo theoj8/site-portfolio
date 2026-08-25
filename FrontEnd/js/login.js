@@ -12,6 +12,8 @@ formLogin.addEventListener("submit", async function(event) {
     if (!response.ok) {
         let errorMessage = document.querySelector(".error-message");
         errorMessage.textContent = "Email ou mot de passe incorrect";
+        document.querySelector("#email").value="";
+        document.querySelector("#password").value="";
         return;
     }
     const loginData = await response.json();
