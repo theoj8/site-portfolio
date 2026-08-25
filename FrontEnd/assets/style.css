@@ -237,6 +237,17 @@ a{
 	color: red;
 }
 
+.mode-edition{
+	display: none;
+	flex-direction: row;
+	color: white;
+	background-color: black;
+	padding: 16px 8px;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
