@@ -223,6 +223,15 @@ input[type="submit"]:hover{
 	align-self: center;
 }
 
+a{
+	text-decoration: none;
+	color: black;
+}
+
+.btn-login{
+	font-weight: bold;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
