@@ -123,10 +123,7 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
-}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -228,7 +225,7 @@ a{
 	color: black;
 }
 
-.btn-login{
+.btn-login-active{
 	font-weight: bold;
 }
 
@@ -246,6 +243,20 @@ a{
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
+}
+
+.project{
+	display: flex;
+	justify-content: center;
+}
+.btn-modifier{
+	display: none;
+	align-items: center;
+	gap: 5px;
+	margin-left: 30px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 footer nav ul {

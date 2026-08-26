@@ -5,6 +5,10 @@ async function getCategories() {
 }
 
 async function displayCategorie() {
+    let token = localStorage.getItem("token");
+    if(token){
+        return;
+    }
     const categories = await getCategories();
     let filtres = document.querySelector(".zone-filtres");
     let newFiltresTous = document.createElement("button");
