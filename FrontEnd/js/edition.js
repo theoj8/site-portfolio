@@ -14,4 +14,31 @@ if (token){
     modif.style.display = "flex";
     let project = document.querySelector(".project");
     project.style.margin = "0 0 0 100px";
+    let modale = document.querySelector(".modale");
+    modif.addEventListener("click", async function() {
+        modale.showModal();
+        const works = await getWorks();
+        let displayWorksModale = document.querySelector(".img-modale");
+        displayWorksModale.innerHTML = "";
+        for (let i=0; i< works.length; i++){
+            const work= works[i];
+            let newFigure = document.createElement("figure");
+            let newImg = document.createElement("img");
+            newImg.setAttribute("src", work.imageUrl)
+            let newIconeBin = document.createElement("i");
+            newIconeBin.setAttribute("class", "fa-solid fa-trash-can icone-bin");
+            newFigure.appendChild(newImg);
+            newFigure.appendChild(newIconeBin);
+            displayWorksModale.appendChild(newFigure);
+        }
+    })
+    let btnClose = document.querySelector(".btn-close-modale");
+    btnClose.addEventListener("click", async function () {
+        modale.close();
+    })
+    modale.addEventListener("click", async function (event) {
+        if(event.target == modale){
+            modale.close();
+        }
+    })
 };
