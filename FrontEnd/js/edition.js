@@ -27,9 +27,21 @@ if (token){
             newImg.setAttribute("src", work.imageUrl)
             let newIconeBin = document.createElement("i");
             newIconeBin.setAttribute("class", "fa-solid fa-trash-can icone-bin");
+            newIconeBin.setAttribute("data-work-id", work.id);
             newFigure.appendChild(newImg);
             newFigure.appendChild(newIconeBin);
             displayWorksModale.appendChild(newFigure);
+            newIconeBin.addEventListener("click", async function (event) {
+                let token = localStorage.getItem("token");
+                let workId = event.target.getAttribute("data-work-id");
+                const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+                    method: "DELETE",
+                    headers:{"authorization": `Bearer ${token}`}
+                })
+                if(response.ok){
+                    event.target.parentElement.remove()
+                }
+            })
         }
     })
     let btnClose = document.querySelector(".btn-close-modale");
