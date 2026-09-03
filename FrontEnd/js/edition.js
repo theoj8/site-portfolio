@@ -17,6 +17,70 @@ if (token){
     let modale = document.querySelector(".modale");
     modif.addEventListener("click", async function() {
         modale.showModal();
+        vueGallery.style.display = "flex";
+        vueAjout.style.display = "none";
+        await afficherWorksModal();
+    })
+    let btnAjout = document.querySelector(".btn-ajout");
+    let vueGallery = document.querySelector(".vue-galerie");
+    let vueAjout = document.querySelector(".vue-ajout")
+    let btnBack = document.querySelector(".btn-back");
+    btnAjout.addEventListener("click", async function () {
+        const categories = await getCategories();
+        let displaySelect = document.querySelector("#category");
+        displaySelect.innerHTML = "";
+        for (let i=0; i < categories.length; i++) {
+            const category = categories[i];
+            let newOption = document.createElement("option")
+            newOption.setAttribute("value", category.id)
+            newOption.textContent = category.name
+            displaySelect.appendChild(newOption)
+        }
+        vueGallery.style.display = "none"
+        vueAjout.style.display = "flex"
+    })
+    btnBack.addEventListener("click", function () {
+        vueGallery.style.display = "flex"
+        vueAjout.style.display = "none"
+    })
+    let btnAjoutPhoto = document.querySelector(".btn-ajouter-photo")
+    let addPhoto = document.querySelector(".add-photo")
+    let iconeImg = document.querySelector("#icone-img")
+    btnAjoutPhoto.addEventListener("click", function() {
+        addPhoto.click()
+    })
+    addPhoto.addEventListener("change", function() {
+        let fichier = addPhoto.files[0];
+        let apercuPhoto = document.querySelector(".apercu-photo")
+        apercuPhoto.style.display = "flex"
+        apercuPhoto.setAttribute("src", URL.createObjectURL(fichier))
+        iconeImg.style.display = "none"
+    })
+    let formAjout = document.querySelector(".form-ajout")
+    formAjout.addEventListener("submit", async function(event) {
+        event.preventDefault()
+        let title = document.querySelector("#title").value;
+        let category = document.querySelector("#category").value;
+        let img = document.querySelector("#add").files[0];
+        let formData = new FormData();
+        formData.append("title", title)
+        formData.append("category", category)
+        formData.append("image", img)
+        const response = await fetch("http://localhost:5678/api/works", {
+            method: "POST",
+            headers:{"authorization": `Bearer ${token}`},
+            body: formData
+        })
+        if (response.ok){
+            document.querySelector("#title").value ="";
+            document.querySelector("#category").value= "";
+            document.querySelector("#add").value= "";
+            vueGallery.style.display = "flex"
+            vueAjout.style.display = "none"
+            await afficherWorksModal();
+        }
+    })
+    async function afficherWorksModal() {
         const works = await getWorks();
         let displayWorksModale = document.querySelector(".img-modale");
         displayWorksModale.innerHTML = "";
@@ -43,7 +107,7 @@ if (token){
                 }
             })
         }
-    })
+    }
     let btnClose = document.querySelector(".btn-close-modale");
     btnClose.addEventListener("click", async function () {
         modale.close();
