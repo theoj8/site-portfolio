@@ -178,20 +178,20 @@ li:hover {
 #contact h2, #login h2{
 	margin-bottom: 20px;
 }
-#contact form, #login form {
+#contact form, #login form, .form-ajout {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input, #login input {
+#contact input, #login input, .form-ajout input, .form-ajout select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label, #login label {
+#contact label, #login label, .form-ajout label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea, #login textarea {
@@ -248,6 +248,7 @@ a{
 .project{
 	display: flex;
 	justify-content: center;
+	padding-top: 150px;
 }
 .btn-modifier{
 	display: none;
@@ -284,6 +285,15 @@ a{
 	cursor: pointer;
 }
 
+.btn-back{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 .img-modale{
 	display: grid;
 	grid-template-columns: repeat(5, 100px);
@@ -313,6 +323,8 @@ a{
 
 .vue-ajout{
 	display: none;
+	flex-direction: column;
+	align-items: center;
 }
 
 .vue-galerie{
@@ -330,12 +342,46 @@ a{
 
 .btn-ajout{
 	margin: 15px;
+	padding: 5px 20px 5px 20px;
+	border-color: transparent;
+	cursor: pointer;
+}
+
+.btn-ajouter-photo{
+	background-color: #CBD6DC;
+	border-radius: 15px;
+	border: none;
+	padding: 5px 30px;
+	color: #306685;
 }
 
 hr{
 	color: black;
 	width: 420px;
-	margin: 100px;
+	margin: 100px 0 20px 0;
+}
+
+.zone-upload{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 5px;
+	background-color: #E8F1F6;
+	padding: 20px 40px;
+	gap: 15px;
+}
+
+#icone-img{
+	font-size: 70px;
+	color: #B9C5CC;
+}
+
+.text-photo{
+	font-size: 0.8em;
+}
+
+.form-ajout{
+	width: 70%;
 }
 
 footer nav ul {
