@@ -62,6 +62,11 @@ if (token){
         let title = document.querySelector("#title").value;
         let category = document.querySelector("#category").value;
         let img = document.querySelector("#add").files[0];
+        if(!title || !category || !img){
+            let msgError = document.querySelector(".error-msg-ajout");
+            msgError.textContent = "Veuillez remplir tous les champs";
+            return;
+        }
         let formData = new FormData();
         formData.append("title", title)
         formData.append("category", category)

@@ -229,7 +229,7 @@ a{
 	font-weight: bold;
 }
 
-.error-message{
+.error-message, .error-msg-ajout{
 	margin-top: 15px;
 	color: red;
 }
