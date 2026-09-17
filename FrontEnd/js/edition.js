@@ -115,6 +115,20 @@ if (token){
             })
         }
     }
+    function verifForm() {
+        let title = document.querySelector("#title").value;
+        let category = document.querySelector("#category").value;
+        let img = document.querySelector("#add").files[0];
+        let btnValider = document.querySelector("#valider");
+        if (title && category && img){
+            btnValider.style.backgroundColor ="#1D6154";
+        }else{
+            btnValider.style.backgroundColor = "#A7A7A7";
+        }
+    }
+    document.querySelector("#title").addEventListener("change", verifForm);
+    document.querySelector("#category").addEventListener("change", verifForm);
+    document.querySelector("#add").addEventListener("change", verifForm);
     let btnClose = document.querySelector(".btn-close-modale");
     btnClose.addEventListener("click", async function () {
         modale.close();
