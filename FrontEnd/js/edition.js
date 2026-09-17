@@ -83,6 +83,7 @@ if (token){
             vueGallery.style.display = "flex"
             vueAjout.style.display = "none"
             await afficherWorksModal();
+            await displayGallery();
         }
     })
     async function afficherWorksModal() {
@@ -108,7 +109,8 @@ if (token){
                     headers:{"authorization": `Bearer ${token}`}
                 })
                 if(response.ok){
-                    event.target.parentElement.remove()
+                    event.target.parentElement.remove();
+                    await displayGallery();
                 }
             })
         }

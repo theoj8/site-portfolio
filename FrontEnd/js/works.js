@@ -7,6 +7,7 @@ async function getWorks() {
 async function displayGallery() {
   const works = await getWorks();
   let gallery = document.querySelector(".gallery");
+  gallery.innerHTML = "";
     for (let i = 0; i < works.length; i++){
       const work = works[i];
       let newFigure = document.createElement("figure");
